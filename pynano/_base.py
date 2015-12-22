@@ -40,6 +40,24 @@ class NanoBase(object):
         if prefetch:
             self._fetch()
 
+    def _fetch_element(self, index, is_history=None):
+        """Get a particular data element, fetching from the API if necessary.
+
+        If is_history is True, then the subsequent fetch (if necessary) will use
+        the history API; otherwise it will fall back to the object's
+        fetch_history value.
+        """
+        try:
+            # Attempt to return the requested data element
+            return self._data[index]
+        except (KeyError, TypeError):
+            # Didn't find it, or nothing fetched yet
+            # Fetch data from the API
+            self._fetch(is_history)
+
+            # If we still don't find it, allow the exception to be raised
+            return self._data[index]
+
     def _fetch(self, history=None):
         """Fetch data from the API.
 
