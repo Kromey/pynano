@@ -9,9 +9,6 @@ class NanoBase(object):
     API data from the NaNoWriMo API.
     """
 
-    # Force the object to fetch from the history endpoint
-    fetch_history = False
-
     # API name for this object
     _name = None
 
@@ -19,10 +16,11 @@ class NanoBase(object):
     _primary_url = None
     _history_url = None
 
-    # Cache for retrieved data
+    # Caches for retrieved data
     _data = None
+    _history = None
 
-    def __init__(self, name, prefetch=False, fetch_history=False):
+    def __init__(self, name, prefetch=False):
         """Initialize a new pynano API object.
 
         The only required parameter is name, which is the name of the current
@@ -30,22 +28,18 @@ class NanoBase(object):
 
         If prefetch is set to True, the API will be queried immediately; if not,
         it will be lazily fetched on first use.
-        If fetch_history is set to True, the API will always use the history URL
-        rather than using the primary URL when it can.
         """
-        self.fetch_history = fetch_history
 
         self._name = name
 
         if prefetch:
             self._fetch()
 
-    def _fetch_element(self, index, is_history=None):
+    def _fetch_element(self, index, is_history=False):
         """Get a particular data element, fetching from the API if necessary.
 
         If is_history is True, then the subsequent fetch (if necessary) will use
-        the history API; otherwise it will fall back to the object's
-        fetch_history value.
+        the history API instead of the primary API.
         """
         try:
             # Attempt to return the requested data element
@@ -58,19 +52,12 @@ class NanoBase(object):
             # If we still don't find it, allow the exception to be raised
             return self._data[index]
 
-    def _fetch(self, history=None):
+    def _fetch(self, history=False):
         """Fetch data from the API.
 
-        If the history parameter is present and True, then the history URL will
-        be queried for data; if it is present and False, then the primary URL
-        will be queried.
-        If the history parameter is omitted, then the object's fetch_history
-        value will be used instead.
+        If the history parameter is True, then the history URL will be queried
+        for data; if it is False, then the primary URL will be queried.
         """
-        if history is None:
-            # Default to our fetch_history setting
-            history = self.fetch_history
-
         if history:
             # Fetching history data
             url = self._history_url
@@ -80,6 +67,19 @@ class NanoBase(object):
 
         # Now fetch from the server
         r = requests.get(url.format(name=self._name))
-        # Parse and stash the returned data (removing root element)
-        self._data = next(iter(xmltodict.parse(r.text).values()))
+        # Parse the returned data (removing root element)
+        data = next(iter(xmltodict.parse(r.text).values()))
+
+        # Now stash the data
+        if history:
+            # Stash the history data
+            self._history = data['wordcounts']
+
+            if self._data is None:
+                # Haven't fetched primary data, stash what we got
+                del data['wordcounts']
+                self._data = data
+        else:
+            # Stash the primary data
+            self._data = data
 
