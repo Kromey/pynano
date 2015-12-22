@@ -73,7 +73,7 @@ class NanoBase(object):
         # Now stash the data
         if history:
             # Stash the history data
-            self._history = data['wordcounts']
+            self._history = self._process_history(data['wordcounts'])
 
             if self._data is None:
                 # Haven't fetched primary data, stash what we got
@@ -82,4 +82,19 @@ class NanoBase(object):
         else:
             # Stash the primary data
             self._data = data
+
+    def _process_history(self, history_data):
+        """Process the history API's data into an easily-indexed dict."""
+        processed = {}
+
+        for data in history_data['wcentry']:
+            date = data['wcdate'].split('-')
+            if date[1] != '11':
+                # Do nothing if we somehow got non-November data
+                continue
+
+            # Index the data by day
+            processed[int(date[2])] = data
+
+        return processed
 
