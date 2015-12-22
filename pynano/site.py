@@ -6,9 +6,9 @@ class Site(NanoBase):
     _primary_url = 'http://nanowrimo.org/wordcount_api/wcstatssummary{name}'
     _history_url = 'http://nanowrimo.org/wordcount_api/wcstats{name}'
 
-    def __init__(self, prefetch=False, fetch_history=False):
-        """Site objects don't have a name."""
-        super().__init__('', prefetch, fetch_history)
+    def __init__(self, *args, **kwargs):
+        """Site objects don't have a name, but we have to supply one."""
+        super().__init__(name='', *args, **kwargs)
 
     @property
     def wordcount(self):
