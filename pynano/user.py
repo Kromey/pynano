@@ -1,4 +1,4 @@
-from ._base import NanoBase
+from .base import NanoBase
 
 
 class User(NanoBase):
