@@ -62,6 +62,6 @@ class NanoBase(object):
 
         # Now fetch from the server
         r = requests.get(url.format(name=self._name))
-        # Parse and stash the returned data
-        self._data = xmltodict.parse(r.text)
+        # Parse and stash the returned data (removing root element)
+        self._data = next(iter(xmltodict.parse(r.text).values()))
 
