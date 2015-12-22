@@ -1,7 +1,7 @@
 import requests
 
 
-class NanoBase(Object):
+class NanoBase(object):
     """Base object for pynano API objects.
 
     This object implements the common functionality for fetching and processing
@@ -29,7 +29,10 @@ class NanoBase(Object):
         if prefetch:
             self._fetch()
 
-    def _fetch(history=self._fetch_history):
+    def _fetch(self, history=None):
+        if history is None:
+            history = self.fetch_history
+
         if history:
             url = self._history_url
         else:
