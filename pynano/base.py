@@ -2,6 +2,9 @@ import requests
 import xmltodict
 
 
+from .history import NanoHistorySequence as History
+
+
 class NanoBase(object):
     """Base object for pynano API objects.
 
@@ -102,8 +105,8 @@ class NanoBase(object):
                 # Do nothing if we somehow got non-November data
                 continue
 
-            # Index the data by day
-            processed[int(date[2])] = data
+            # Index the data by day less 1 (0-indexed data)
+            processed[int(date[2])-1] = data
 
-        return processed
+        return History(processed)
 
