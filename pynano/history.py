@@ -26,4 +26,9 @@ class NanoHistorySequence(Sequence):
         except ValueError:
             # Not an integer
             raise TypeError('Index must be an integer: {key}'.format(key=key))
+        except KeyError:
+            # TODO: Need to detect the difference between out-of-range index,
+            # and a gap in the data; if the latter, need an "empty" response
+            # For now just assume we're out-of-range
+            raise IndexError()
 
