@@ -38,9 +38,18 @@ class NanoBase(object):
         if prefetch:
             self._fetch()
 
-    def history(self, day):
-        """Retrieve historical data for the given day."""
-        return self._fetch_day(day)
+    @property
+    def history(self):
+        """Historical data for this object.
+
+        The returned object is a NanoHistorySequence object.
+        """
+        if self._history is None:
+            # Haven't fetched history data yet, do so now
+            self._fetch(True)
+
+        # Return the history object
+        return self._history
 
     def _fetch_element(self, index):
         """Get a particular data element, fetching from the API if necessary."""
@@ -54,15 +63,6 @@ class NanoBase(object):
 
             # If we still don't find it, allow the exception to be raised
             return self._data[index]
-
-    def _fetch_day(self, day):
-        """Retrieve data for a particular day from the API."""
-        if self._history is None:
-            # Haven't fetched history data yet, do so now
-            self._fetch(True)
-
-        # Retrieve the day's data
-        return self._history[day]
 
     def _fetch(self, history=False):
         """Fetch data from the API.
