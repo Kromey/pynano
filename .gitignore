@@ -52,6 +52,8 @@ coverage.xml
 
 # Sphinx documentation
 docs/_build/
+docs/pynano.rst
+docs/pynano.*.rst
 
 # PyBuilder
 target/
