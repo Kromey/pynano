@@ -110,6 +110,9 @@ pygments_style = 'sphinx'
 # If true, `todo` and `todoList` produce output, else they produce nothing.
 todo_include_todos = True
 
+autoclass_content = 'both'
+autodoc_default_flags = ['members','undoc-members','inherited-members','show-inheritance']
+
 
 # -- Options for HTML output ----------------------------------------------
 
