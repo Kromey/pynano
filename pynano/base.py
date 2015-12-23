@@ -3,6 +3,7 @@ import xmltodict
 
 
 from .history import NanoHistorySequence as History
+from .day import NanoDay
 
 
 class NanoBase(object):
@@ -18,6 +19,9 @@ class NanoBase(object):
     # Endpoint URLs for this object; must include a '{name}' placeholder
     _primary_url = None
     _history_url = None
+
+    # The history day class for this object
+    _day_class = NanoDay
 
     # Caches for retrieved data
     _data = None
@@ -101,12 +105,15 @@ class NanoBase(object):
 
         for data in history_data['wcentry']:
             date = data['wcdate'].split('-')
+
             if date[1] != '11':
                 # Do nothing if we somehow got non-November data
                 continue
 
+            # Construct a Day object from our data
+            day = self._day_class(data)
             # Index the data by day less 1 (0-indexed data)
-            processed[int(date[2])-1] = data
+            processed[int(date[2])-1] = day
 
         return History(processed)
 
