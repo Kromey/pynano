@@ -10,7 +10,9 @@ class NanoBase(object):
     """Base object for pynano API objects.
 
     This object implements the common functionality for fetching and processing
-    API data from the NaNoWriMo API.
+    API data from the NaNoWriMo API. By default the API is queried "lazily",
+    that is requests are only sent when data from the API is actually requested.
+    This behavior can be overridden with the *prefetch* parameter.
     """
 
     # API name for this object
@@ -30,13 +32,10 @@ class NanoBase(object):
     _history = None
 
     def __init__(self, name, prefetch=False):
-        """Initialize a new pynano API object.
-
-        The only required parameter is name, which is the name of the current
-        object as recognized by the backend API.
-
-        If prefetch is set to True, the API will be queried immediately; if not,
-        it will be lazily fetched on first use.
+        """
+        :param str name: The name of the current object in the NaNoWriMo API
+        :param bool prefetch: If True, the API will be queried immediately;
+                              otherwise it is queried only when needed
         """
 
         self._name = name
@@ -48,7 +47,7 @@ class NanoBase(object):
     def history(self):
         """Historical data for this object.
 
-        The returned object is a NanoHistorySequence object.
+        :rtype: NanoHistorySequence
         """
         if self._history is None:
             # Haven't fetched history data yet, do so now
