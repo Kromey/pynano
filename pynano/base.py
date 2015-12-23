@@ -22,6 +22,8 @@ class NanoBase(object):
 
     # The history day class for this object
     _day_class = NanoDay
+    # The API field with a given day's date
+    _date_field = 'wcdate'
 
     # Caches for retrieved data
     _data = None
@@ -104,16 +106,24 @@ class NanoBase(object):
         processed = {}
 
         for data in history_data['wcentry']:
-            date = data['wcdate'].split('-')
+            # Get the date from the proper field
+            date = data[self._date_field]
 
-            if date[1] != '11':
+            # Normalize the date field
+            del data[self._date_field]
+            data['date'] = date
+
+            # Break out the date elements
+            year, month, day = date.split('-')
+
+            if month != '11':
                 # Do nothing if we somehow got non-November data
                 continue
 
             # Construct a Day object from our data
-            day = self._day_class(data)
+            the_day = self._day_class(data)
             # Index the data by day less 1 (0-indexed data)
-            processed[int(date[2])-1] = day
+            processed[int(day)-1] = the_day
 
         return History(processed)
 

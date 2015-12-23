@@ -12,7 +12,7 @@ class NanoDay(object):
 
     @property
     def date(self):
-        return self._data['wcdate']
+        return self._data['date']
 
     @property
     def wordcount(self):

@@ -6,6 +6,9 @@ class Region(NanoBase):
     _primary_url = 'http://nanowrimo.org/wordcount_api/wcregion/{name}'
     _history_url = 'http://nanowrimo.org/wordcount_api/wcregionhist/{name}'
 
+    # The day field for the history API
+    _date_field = 'date'
+
     @property
     def id(self):
         return self._fetch_element('rid')
