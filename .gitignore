@@ -54,6 +54,7 @@ coverage.xml
 docs/_build/
 docs/pynano.rst
 docs/pynano.*.rst
+docs/modules.rst
 
 # PyBuilder
 target/
