@@ -59,6 +59,7 @@ class Site(NanoBase):
         """
         :param bool prefetch: If True, the API will be queried immediately;
                               otherwise it is queried only when needed
+
         .. note::
            Site objects, unlike other NaNoWriMo API objects, do not have a name
            attribute. We override the __init__() method to remove the name
