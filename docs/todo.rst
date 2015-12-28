@@ -1,5 +1,5 @@
-Project "TODO"s
-===============
+Todo List
+=========
 
 .. todolist::
 
