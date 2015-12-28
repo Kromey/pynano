@@ -113,6 +113,10 @@ todo_include_todos = True
 autoclass_content = 'both'
 autodoc_default_flags = ['members','undoc-members','inherited-members','show-inheritance']
 
+rst_epilog = """
+.. |project| replace:: ``pynano``
+"""
+
 
 # -- Options for HTML output ----------------------------------------------
 
