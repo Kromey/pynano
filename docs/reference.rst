@@ -22,6 +22,7 @@ site or in a region.
    name
    id
    winner
+   history
 
 ``pynano.Region``
 ^^^^^^^^^^^^^^^^^
@@ -40,6 +41,7 @@ site or in a region.
    stddev
    donations
    donors
+   history
 
 ``pynano.Site``
 ^^^^^^^^^^^^^^^
@@ -54,6 +56,7 @@ site or in a region.
    max
    average
    stddev
+   history
 
 Historical Data
 ---------------
