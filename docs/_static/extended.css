@@ -1,0 +1,15 @@
+@import url('agogo.css');
+
+table.longtable.docutils {
+	border:  none;
+	border-collapse: collapse;
+}
+
+table.longtable.docutils td {
+	border:  none;
+	padding: 0px 3px;
+}
+
+table.longtable.docutils tr {
+	border-bottom: 1px solid gray;
+}
