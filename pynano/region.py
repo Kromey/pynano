@@ -1,3 +1,6 @@
+from decimal import Decimal
+
+
 from .base import NanoBase
 from .day import NanoDay
 
@@ -23,56 +26,70 @@ class RegionDay(NanoDay):
         """Minimum word count posted to the region this day.
 
         Corresponds to `min` in the API.
+
+        :rtype: int
         """
-        return self._data['min']
+        return int(self._data['min'])
 
     @property
     def max(self):
         """Maximum word count posted to the region this day.
 
         Corresponds to `max` in the API.
+
+        :rtype: int
         """
-        return self._data['max']
+        return int(self._data['max'])
 
     @property
     def average(self):
         """Average word count posted to the region this day.
 
         Corresponds to `average` in the API.
+
+        :rtype: Decimal
         """
-        return self._data['average']
+        return Decimal(self._data['average'])
 
     @property
     def stddev(self):
         """Standard deviation of word counts posted to the region this day.
 
         Corresponds to `stddev` in the API.
+
+        :rtype: Decimal
         """
-        return self._data['stddev']
+        return Decimal(self._data['stddev'])
 
     @property
     def writers(self):
         """Writers in the region.
 
         Corresponds to `count` in the API.
+
+        :rtype: int
         """
-        return self._data['count']
+        return int(self._data['count'])
 
     @property
     def donations(self):
         """Donations made from this region on this day.
 
         Corresponds to `donations` in the API.
+
+        :rtype: Decimal
         """
-        return self._data['donations']
+        return Decimal(self._data['donations'])
 
     @property
     def donors(self):
         """Number of people donating from this region on this day.
 
         Corresponds to `numdonors` in the API.
+
+        :rtype: int
         """
-        return self._data['numdonors']
+        return int(self._data['numdonors'])
 
 
 class Region(NanoBase):
@@ -91,6 +108,8 @@ class Region(NanoBase):
         """Region ID.
 
         Corresponds to `rid` in the API.
+
+        :rtype: string
         """
         return self._fetch_element('rid')
 
@@ -99,6 +118,8 @@ class Region(NanoBase):
         """Region name.
 
         Corresponds to `rname` in the API.
+
+        :rtype: string
         """
         return self._fetch_element('rname')
 
@@ -107,62 +128,78 @@ class Region(NanoBase):
         """Region word count.
 
         Corresponds to `word count` in the API.
+
+        :rtype: int
         """
-        return self._fetch_element('region_wordcount')
+        return int(self._fetch_element('region_wordcount'))
 
     @property
     def min(self):
         """Minimum word count in the region.
 
         Corresponds to `min` in the API.
+
+        :rtype: int
         """
-        return self._fetch_element('min')
+        return int(self._fetch_element('min'))
 
     @property
     def max(self):
         """Maximum word count in the region.
 
         Corresponds to `max` in the API.
+
+        :rtype: int
         """
-        return self._fetch_element('max')
+        return int(self._fetch_element('max'))
 
     @property
     def average(self):
         """Average word count in the region.
 
         Corresponds to `average` in the API.
+
+        :rtype: Decimal
         """
-        return self._fetch_element('average')
+        return Decimal(self._fetch_element('average'))
 
     @property
     def stddev(self):
         """Standard deviation of word counts in the region.
 
         Corresponds to `stddev` in the API.
+
+        :rtype: Decimal
         """
-        return self._fetch_element('stddev')
+        return Decimal(self._fetch_element('stddev'))
 
     @property
     def writers(self):
         """Writers in the region.
 
         Corresponds to `count` in the API.
+
+        :rtype: int
         """
-        return self._fetch_element('count')
+        return int(self._fetch_element('count'))
 
     @property
     def donations(self):
         """Donations made from the region.
 
         Corresponds to `donations` in the API.
+
+        :rtype: Decimal
         """
-        return self._fetch_element('donations')
+        return Decimal(self._fetch_element('donations'))
 
     @property
     def donors(self):
         """Donors from the region.
 
         Corresponds to `numdonors` in the API.
+
+        :rtype: int
         """
-        return self._fetch_element('numdonors')
+        return int(self._fetch_element('numdonors'))
 

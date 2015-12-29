@@ -1,3 +1,6 @@
+from decimal import Decimal
+
+
 from collections.abc import Sequence
 
 
@@ -21,6 +24,8 @@ class NanoDay(object):
         """The date of this object.
 
         This property corresponds to `wcdate` or `date` in the API.
+
+        :rtype: string
         """
         return self._data['date']
 
@@ -29,8 +34,10 @@ class NanoDay(object):
         """The word count on this date.
 
         This property corresponds to `wc` in the API.
+
+        :rtype: int
         """
-        return self._data['wc']
+        return int(self._data['wc'])
 
 
 class NanoDaySequence(Sequence):
@@ -55,8 +62,10 @@ class NanoDaySequence(Sequence):
         should be 11.
 
         :param int key: The day (less 1) to retrieve
-        :raise TypeError: if `key` is not an integer
-        :raise IndexError: if `key` is out of range
+        :raises TypeError: if `key` is not an integer
+        :raises IndexError: if `key` is out of range
+        :returns: Daily data for the object
+        :rtype: NanoDay
 
         .. todo::
            Need to detect the difference between out-of-range index, and a gap

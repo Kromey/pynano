@@ -1,3 +1,6 @@
+from decimal import Decimal
+
+
 from .base import NanoBase
 from .day import NanoDay
 
@@ -10,32 +13,40 @@ class SiteDay(NanoDay):
         """Minimum word count posted to the region this day.
 
         Corresponds to `min` in the API.
+
+        :rtype: int
         """
-        return self._data['min']
+        return int(self._data['min'])
 
     @property
     def max(self):
         """Maximum word count posted to the region this day.
 
         Corresponds to `max` in the API.
+
+        :rtype: int
         """
-        return self._data['max']
+        return int(self._data['max'])
 
     @property
     def average(self):
         """Average of word counts posted to the region this day.
 
         Corresponds to `average` in the API.
+
+        :rtype: Decimal
         """
-        return self._data['average']
+        return Decimal(self._data['average'])
 
     @property
     def stddev(self):
         """Standard deviation of word counts posted to the region this day.
 
         Corresponds to `stddev` in the API.
+
+        :rtype: Decimal
         """
-        return self._data['stddev']
+        return Decimal(self._data['stddev'])
 
     @property
     def count(self):
@@ -43,8 +54,10 @@ class SiteDay(NanoDay):
 
         .. todo::
            Figure out what this one actually is.
+
+        :rtype: int
         """
-        return self._data['count']
+        return int(self._data['count'])
 
 
 class Site(NanoBase):
@@ -72,46 +85,58 @@ class Site(NanoBase):
         """Word count for the site.
 
         Corresponds to `site_wordcount` in the API.
+
+        :rtype: int
         """
-        return self._fetch_element('site_wordcount')
+        return int(self._fetch_element('site_wordcount'))
 
     @property
     def min(self):
         """Minimum word count for the site.
 
         Corresponds to `min` in the API.
+
+        :rtype: int
         """
-        return self._fetch_element('min')
+        return int(self._fetch_element('min'))
 
     @property
     def max(self):
         """Maximum word count for the site.
 
         Corresponds to `max` in the API.
+
+        :rtype: int
         """
-        return self._fetch_element('max')
+        return int(self._fetch_element('max'))
 
     @property
     def average(self):
         """Average word count for the site.
 
         Corresponds to `average` in the API.
+
+        :rtype: Decimal
         """
-        return self._fetch_element('average')
+        return Decimal(self._fetch_element('average'))
 
     @property
     def stddev(self):
         """Standard deviation of word counts for the site.
 
         Corresponds to `stddev` in the API.
+
+        :rtype: Decimal
         """
-        return self._fetch_element('stddev')
+        return Decimal(self._fetch_element('stddev'))
 
     @property
     def writers(self):
         """Number of writers participating on the site.
 
         Corresponds to `count` in the API.
+
+        :rtype: int
         """
-        return self._fetch_element('count')
+        return int(self._fetch_element('count'))
 

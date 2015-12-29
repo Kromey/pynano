@@ -14,6 +14,8 @@ class User(NanoBase):
         """The User's id.
 
         This property corresponds to `uid` in the API.
+
+        :rtype: string
         """
         return self._fetch_element('uid')
 
@@ -22,6 +24,8 @@ class User(NanoBase):
         """The User's username.
 
         This property corresponds to `uname` in the API.
+
+        :rtype: string
         """
         return self._fetch_element('uname')
 
@@ -30,8 +34,10 @@ class User(NanoBase):
         """The User's current word count.
 
         This property corresponds to `user_wordcount` in the API.
+
+        :rtype: int
         """
-        return self._fetch_element('user_wordcount')
+        return int(self._fetch_element('user_wordcount'))
 
     @property
     def winner(self):
