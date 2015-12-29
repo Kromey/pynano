@@ -21,7 +21,7 @@ Contents:
    intro
    quickstart
    reference
-   modules
+   Module Reference <modules>
    todo
    license
 
