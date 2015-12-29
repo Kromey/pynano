@@ -73,18 +73,6 @@ Users
    date
    wordcount
 
-Example Usage
-"""""""""""""
-
-::
-
-   >>> from pynano import User
-   >>> kromey = User('kromey')
-   >>> kromey.history[14].date # The sequence is 0-indexed, so index 14 is day 15
-   '2015-11-15'
-   >>> kromey.history[14].wordcount
-   10499
-
 Regions
 ^^^^^^^
 
@@ -119,4 +107,26 @@ Site
    max
    average
    stddev
+
+Example Usage
+^^^^^^^^^^^^^
+
+Individual days from an object's history can be directly accessed::
+
+   >>> from pynano import User
+   >>> kromey = User('kromey')
+   >>> kromey.history[14].date # The sequence is 0-indexed, so index 14 is day 15
+   '2015-11-15'
+   >>> kromey.history[14].wordcount
+   10499
+
+You can also iterate through an object's history::
+
+   >>> for day in kromey.history:
+   ...     print(day.date, day.wordcount)
+   ...
+   2015-11-01 4137
+   2015-11-02 902
+   2015-11-03 609
+   # ...snip...
 
