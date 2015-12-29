@@ -19,6 +19,7 @@ Contents:
    :maxdepth: 2
 
    intro
+   quickstart
    modules
    todo
    license
