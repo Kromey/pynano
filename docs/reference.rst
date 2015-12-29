@@ -1,11 +1,18 @@
 Quick Reference
 ===============
 
-The following summaries show the various properties available on each of the
-|project| objects.
+This page is a short, handy guide to the data available through |project|'s
+interface.
+
+Aggregate Data
+--------------
+
+Each of the "primary" objects provides direct access to the current data for
+that object, such as overall wordcount or the number of participants on the
+site or in a region.
 
 ``pynano.User``
----------------
+^^^^^^^^^^^^^^^
 
 .. currentmodule:: pynano.User
 
@@ -18,7 +25,7 @@ The following summaries show the various properties available on each of the
    history
 
 ``pynano.Region``
------------------
+^^^^^^^^^^^^^^^^^
 
 .. currentmodule:: pynano.Region
 
@@ -37,7 +44,7 @@ The following summaries show the various properties available on each of the
    history
 
 ``pynano.Site``
----------------
+^^^^^^^^^^^^^^^
 
 .. currentmodule:: pynano.Site
 
