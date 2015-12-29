@@ -2,8 +2,7 @@ import requests
 import xmltodict
 
 
-from .history import NanoHistorySequence as History
-from .day import NanoDay
+from .day import NanoDay, NanoDaySequence
 
 
 class NanoBase(object):
@@ -51,7 +50,7 @@ class NanoBase(object):
     def history(self):
         """Historical data for this object.
 
-        :rtype: NanoHistorySequence
+        :rtype: NanoDaySequence
         """
         if self._history is None:
             # Haven't fetched history data yet, do so now
@@ -128,5 +127,5 @@ class NanoBase(object):
             # Index the data by day less 1 (0-indexed data)
             processed[int(day)-1] = the_day
 
-        return History(processed)
+        return NanoDaySequence(processed)
 
