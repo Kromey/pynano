@@ -2,7 +2,7 @@ Quickstart
 ==========
 
 Everything you need to get up and running with |project| in 90 seconds or
-less! [#disclaimer]_
+less! ([#disclaimer]_)
 
 Installation
 ------------
@@ -83,6 +83,9 @@ The Site object provides access to site-wide statistics, and thus does not
 require -- nor even accept -- a name parameter; here, you will likely find
 yourself most interested in :attr:`~.Site.wordcount` and :attr:`~.Site.writers`.
 
+-----
+
 .. rubric:: Footnotes
 
-.. [#disclaimer] 90-second start up time not guaranteed.
+.. [#disclaimer] 90-second start up time not guaranteed. Your results may vary.
+                 Terms subject to change without notice, but don't matter anyway.
