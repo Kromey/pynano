@@ -36,13 +36,15 @@ Users
    >>> kromey.name
    'Kromey'
 
-The only required parameter when creating a ``User`` object is the user name.
-While the argument is case-insensitive, the name must otherwise match what the
-API expects, such as spaces being replaced with hyphens::
+The only required parameter when creating a ``User`` object is the user name,
+which is case sensitive but should otherwise match what appears on the website::
 
-   >>> bob = User('bob-vila')
+   >>> bob = User('bob vila')
    >>> bob.name
    'Bob Vila'
+
+Alternatively you can use the API-style name instead (e.g. `bob-vila` for the
+user `Bob Vila`).
 
 Likely the most common properties you will want to access are :attr:`~.User.wordcount`
 and :py:attr:`~.User.name`.
@@ -60,9 +62,11 @@ Regions
    'USA :: Alaska :: Fairbanks'
 
 Like Users, Region objects require the region name when you create them. Also
-like Users, the names are case-insensitive; the parts of the Region's name are
-separated by a single hyphen, as the example above shows: The Region `USA ::
-Alaska :: Fairbanks` is referenced as `usa-alaska-fairbanks` in your code.
+like Users, the names are case-insensitive; you can either use the API-style
+name as in the example above (i.e. separate each part with a single hyphen, such
+as `usa-alaska-fairbanks` for the region `USA :: Alaska :: Fairbanks`), the
+two-colon separated style that appears in the region names (e.g. `USA :: Alaska
+:: Fairbanks`), or simply use spaces (e.g. `USA Alaska Fairbanks`).
 
 Again, the most common properties you will want to access are :attr:`~.Region.wordcount`
 and :py:attr:`~.Region.name`, although :attr:`~.Region.writers` may be common
