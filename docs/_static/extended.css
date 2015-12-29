@@ -21,3 +21,19 @@ div.toctree-wrapper.compound ul {
 div.toctree-wrapper.compound li.toctree-l1 {
 	margin: 0px;
 }
+
+/* Styles for note boxes */
+.admonition.warning {
+	background-color:  #fcf8e3;
+	border-left-color: #faebcc;
+}
+
+.admonition.note {
+	background-color:  #d9edf7;
+	border-left-color: #bce8f1;
+}
+
+.admonition.admonition-todo {
+	background-color:  #f2dede;
+	border-left-color: #ebccd1;
+}
