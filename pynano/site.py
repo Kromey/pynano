@@ -88,7 +88,10 @@ class Site(NanoBase):
 
         :rtype: int
         """
-        return int(self._fetch_element('site_wordcount'))
+        # History API has alternative names for some reason, try those too
+        wordcount = self._fetch_element('site_wordcount', alt_index='site_word_count')
+
+        return int(wordcount)
 
     @property
     def min(self):
@@ -138,5 +141,8 @@ class Site(NanoBase):
 
         :rtype: int
         """
-        return int(self._fetch_element('count'))
+        # History API has alternative names for some reason, try those too
+        writers = self._fetch_element('count', alt_index='numparticipants')
+
+        return int(writers)
 

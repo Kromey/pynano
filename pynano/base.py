@@ -59,18 +59,25 @@ class NanoBase(object):
         # Return the history object
         return self._history
 
-    def _fetch_element(self, index):
+    def _fetch_element(self, index, alt_index=None):
         """Get a particular data element, fetching from the API if necessary."""
+        #We try from alt_index first
+        my_index = alt_index or index
+
         try:
             # Attempt to return the requested data element
-            return self._data[index]
+            return self._data[my_index]
         except (KeyError, TypeError):
             # Didn't find it, or nothing fetched yet
-            # Fetch data from the API
-            self._fetch()
+            if alt_index is not None:
+                # Retry without alt_index
+                return self._fetch_element(index)
+            else:
+                # Fetch data from the API
+                self._fetch()
 
             # If we still don't find it, allow the exception to be raised
-            return self._data[index]
+            return self._data[my_index]
 
     def _fetch(self, history=False):
         """Fetch data from the API.
