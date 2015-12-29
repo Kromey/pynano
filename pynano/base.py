@@ -13,6 +13,10 @@ class NanoBase(object):
     API data from the NaNoWriMo API. By default the API is queried "lazily",
     that is requests are only sent when data from the API is actually requested.
     This behavior can be overridden with the *prefetch* parameter.
+
+    .. todo::
+       Process `name` to match what the API requires of it, e.g. replace
+       spaces with '-'.
     """
 
     # API name for this object
