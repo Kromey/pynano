@@ -4,46 +4,50 @@ Quick Reference
 The following summaries show the various properties available on each of the
 |project| objects.
 
-.. currentmodule:: pynano
+``pynano.User``
+---------------
 
-User
-----
-
-.. autosummary::
-
-   User.wordcount
-   User.name
-   User.id
-   User.winner
-   User.history
-
-Region
-------
+.. currentmodule:: pynano.User
 
 .. autosummary::
 
-   Region.wordcount
-   Region.name
-   Region.id
-   Region.writers
-   Region.min
-   Region.max
-   Region.average
-   Region.stddev
-   Region.donations
-   Region.donors
-   Region.history
+   wordcount
+   name
+   id
+   winner
+   history
 
-Site
-----
+``pynano.Region``
+-----------------
+
+.. currentmodule:: pynano.Region
 
 .. autosummary::
 
-   Site.wordcount
-   Site.writers
-   Site.min
-   Site.max
-   Site.average
-   Site.stddev
-   Site.history
+   wordcount
+   name
+   id
+   writers
+   min
+   max
+   average
+   stddev
+   donations
+   donors
+   history
+
+``pynano.Site``
+---------------
+
+.. currentmodule:: pynano.Site
+
+.. autosummary::
+
+   wordcount
+   writers
+   min
+   max
+   average
+   stddev
+   history
 
