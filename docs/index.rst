@@ -20,6 +20,7 @@ Contents:
 
    intro
    quickstart
+   reference
    modules
    todo
    license
