@@ -9,9 +9,6 @@ Naturally, the hosts have graciously supplied a website with various means of
 updating and tracking one's progress through this adventure, including an API
 to allow users to create their own progress trackers.
 
-Enter pynano
-------------
-
 This is where |project| comes into play.
 
 The API is a simple XML-based one supplied over HTTP. While this means it is

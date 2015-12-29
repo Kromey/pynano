@@ -7,7 +7,8 @@ less! ([#disclaimer]_)
 Installation
 ------------
 
-The easiest way to install |project| is to simply run :command:`pip install pynano`.
+The easiest way to install |project| is to simply run :command:`pip install
+pynano`. It will conveniently take care of the requirements for you.
 
 .. warning::
 
