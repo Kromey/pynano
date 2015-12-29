@@ -22,7 +22,6 @@ site or in a region.
    name
    id
    winner
-   history
 
 ``pynano.Region``
 ^^^^^^^^^^^^^^^^^
@@ -41,7 +40,6 @@ site or in a region.
    stddev
    donations
    donors
-   history
 
 ``pynano.Site``
 ^^^^^^^^^^^^^^^
@@ -56,5 +54,69 @@ site or in a region.
    max
    average
    stddev
-   history
+
+Historical Data
+---------------
+
+The API also provides day-to-day data for each of these objects. This data is
+available as read-only sequence of "day" objects via the ``history`` property
+on each one; the sequence is 0-indexed, so to e.g. access day 15's data you
+would use the index ``14``.
+
+Users
+^^^^^
+
+.. currentmodule:: pynano.day.NanoDay
+
+.. autosummary::
+
+   date
+   wordcount
+
+Example Usage
+"""""""""""""
+
+::
+
+   >>> from pynano import User
+   >>> kromey = User('kromey')
+   >>> kromey.history[14].date # The sequence is 0-indexed, so index 14 is day 15
+   '2015-11-15'
+   >>> kromey.history[14].wordcount
+   10499
+
+Regions
+^^^^^^^
+
+.. currentmodule:: pynano.region.RegionDay
+
+.. autosummary::
+
+   date
+   writers
+   min
+   max
+   average
+   stddev
+   donations
+   donors
+
+.. warning::
+
+   There is no ``wordcount`` available in the daily data for Regions. This is a
+   limitation of (bug in?) the backend API itself.
+
+Site
+^^^^
+
+.. currentmodule:: pynano.site.SiteDay
+
+.. autosummary::
+
+   date
+   wordcount
+   min
+   max
+   average
+   stddev
 
