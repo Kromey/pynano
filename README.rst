@@ -14,3 +14,5 @@ This project provides a simple, Pythonic library to access the NaNoWriMo API::
    >>> kromey.name
    'Kromey'
 
+Objects are provided to access data about Users, Regions, and the Site itself.
+Be sure to `read the docs <https://pynano.readthedocs.org>`_ to get started.
