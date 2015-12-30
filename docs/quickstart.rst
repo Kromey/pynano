@@ -10,11 +10,6 @@ Installation
 The easiest way to install |project| is to simply run :command:`pip install
 pynano`. It will conveniently take care of the requirements for you.
 
-.. warning::
-
-   As of |today|, |project| has not yet been uploaded to PyPi, and thus this
-   command will currently fail.
-
 .. todo::
 
    Provide manual install instructions. Maybe.
