@@ -46,8 +46,9 @@ which is case sensitive but should otherwise match what appears on the website::
 Alternatively you can use the API-style name instead (e.g. `bob-vila` for the
 user `Bob Vila`).
 
-Likely the most common properties you will want to access are :attr:`~.User.wordcount`
-and :py:attr:`~.User.name`.
+:attr:`~.User.wordcount` and :attr:`~.User.name` will probably be the most
+common properties you'll want; for others, refer to the :ref:`Reference Guide
+<ref-pynano-user>`.
 
 Regions
 ^^^^^^^
@@ -70,7 +71,7 @@ two-colon separated style that appears in the region names (e.g. `USA :: Alaska
 
 Again, the most common properties you will want to access are :attr:`~.Region.wordcount`
 and :py:attr:`~.Region.name`, although :attr:`~.Region.writers` may be common
-as well.
+as well. Refer to the :ref:`Reference Guide <ref-pynano-region>` for more.
 
 Site
 ^^^^
@@ -87,6 +88,7 @@ Site
 The Site object provides access to site-wide statistics, and thus does not
 require -- nor even accept -- a name parameter; here, you will likely find
 yourself most interested in :attr:`~.Site.wordcount` and :attr:`~.Site.writers`.
+Refer to the :ref:`Reference Guide <ref-pynano-site` for more.
 
 -----
 

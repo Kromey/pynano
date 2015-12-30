@@ -11,6 +11,8 @@ Each of the "primary" objects provides direct access to the current data for
 that object, such as overall wordcount or the number of participants on the
 site or in a region.
 
+.. _ref-pynano-user:
+
 ``pynano.User``
 ^^^^^^^^^^^^^^^
 
@@ -23,6 +25,8 @@ site or in a region.
    id
    winner
    history
+
+.. _ref-pynano-region:
 
 ``pynano.Region``
 ^^^^^^^^^^^^^^^^^
@@ -42,6 +46,8 @@ site or in a region.
    donations
    donors
    history
+
+.. _ref-pynano-site:
 
 ``pynano.Site``
 ^^^^^^^^^^^^^^^
