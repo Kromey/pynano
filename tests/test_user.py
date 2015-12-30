@@ -1,7 +1,7 @@
 from pynano import User
 
 def test_user_wordcount(kromey):
-    assert kromey.wordcount == 64133
+    assert kromey.wordcount == 64135
 
 def test_user_name(kromey):
     assert kromey.name == 'Kromey'
