@@ -1,7 +1,11 @@
 from decimal import Decimal
 
-
-from collections.abc import Sequence
+try:
+    # Favor the Py3 module if available
+    from collections.abc import Sequence
+except ImportError:
+    # Fall back to the Py2 module if we have to
+    from collections import Sequence
 
 
 class NanoDay(object):
