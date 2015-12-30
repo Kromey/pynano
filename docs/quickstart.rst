@@ -88,7 +88,7 @@ Site
 The Site object provides access to site-wide statistics, and thus does not
 require -- nor even accept -- a name parameter; here, you will likely find
 yourself most interested in :attr:`~.Site.wordcount` and :attr:`~.Site.writers`.
-Refer to the :ref:`Reference Guide <ref-pynano-site` for more.
+Refer to the :ref:`Reference Guide <ref-pynano-site>` for more.
 
 -----
 
