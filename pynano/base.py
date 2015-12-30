@@ -10,8 +10,8 @@ class NanoBase(object):
 
     This object implements the common functionality for fetching and processing
     API data from the NaNoWriMo API. By default the API is queried "lazily",
-    that is requests are only sent when data from the API is actually requested.
-    This behavior can be overridden with the *prefetch* parameter.
+    that is requests are only sent when data API is actually requested. This
+    behavior can be overridden with the *prefetch* parameter.
     """
 
     # API name for this object
@@ -58,8 +58,8 @@ class NanoBase(object):
         return self._history
 
     def _fetch_element(self, index, alt_index=None):
-        """Get a particular data element, fetching from the API if necessary."""
-        #We try from alt_index first
+        """Get a particular data element, querying the API if necessary."""
+        # We try from alt_index first
         my_index = alt_index or index
 
         try:
@@ -130,7 +130,7 @@ class NanoBase(object):
             # Construct a Day object from our data
             the_day = self._day_class(data)
             # Index the data by day less 1 (0-indexed data)
-            processed[int(day)-1] = the_day
+            processed[int(day) - 1] = the_day
 
         return NanoDaySequence(processed)
 

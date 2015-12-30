@@ -89,7 +89,8 @@ class Site(NanoBase):
         :rtype: int
         """
         # History API has alternative names for some reason, try those too
-        wordcount = self._fetch_element('site_wordcount', alt_index='site_word_count')
+        wordcount = self._fetch_element('site_wordcount',
+                                        alt_index='site_word_count')
 
         return int(wordcount)
 
