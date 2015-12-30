@@ -87,6 +87,7 @@ setup(
             ],
     tests_require=[
             'pytest',
+            'responses',
             ],
 
     # If there are data files included in your packages that need to be
