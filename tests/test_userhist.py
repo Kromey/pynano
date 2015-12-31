@@ -18,3 +18,13 @@ def test_userhist_id(kromey_hist):
 def test_userhist_winner(kromey_hist):
     assert kromey_hist.winner
 
+
+def test_userhist_daily_date(kromey_hist):
+    assert kromey_hist.history[14].date == '2015-11-15'
+    assert kromey_hist.history[10].date == '2015-11-11'
+
+
+def test_userhist_daily_wordcount(kromey_hist):
+    assert kromey_hist.history[14].wordcount == 10499
+    assert kromey_hist.history[10].wordcount == 804
+
