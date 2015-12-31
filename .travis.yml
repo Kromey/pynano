@@ -19,7 +19,7 @@ matrix:
     - python: "3.5"
   include:
     - python: "3.5"
-    env: CMD="coverage run --source=pynano"
+      env: CMD="coverage run --source=pynano"
 
 before_install:
   - pip install codecov
