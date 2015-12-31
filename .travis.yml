@@ -8,10 +8,18 @@ python:
   - "3.4"
   - "3.5"
 
+env:
+  - CMD=python
+
 matrix:
   allow_failures:
     - python: "2.6"
     - python: "3.2"
+  exclude:
+    - python: "3.5"
+  include:
+    - python: "3.5"
+    env: CMD="coverage run --source=pynano"
 
 before_install:
   - pip install codecov
@@ -19,8 +27,8 @@ before_install:
 install:
   - pip install -e .[test]
 
-script: coverage run --source=pynano setup.py test
+script: $CMD setup.py test
 
 after_success:
-  - codecov
+  - test -e .coverage && codecov
 
