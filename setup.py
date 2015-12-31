@@ -90,7 +90,8 @@ setup(
                 # These only work in extras_require, trying to use them from
                 # tests_require below somehow doesn't make them usable.
                 'pep8',
-                'docutils'
+                'docutils',
+                'coverage',
                 ]
     },
 
