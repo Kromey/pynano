@@ -3,7 +3,7 @@ import pytest
 import responses
 
 
-from pynano import User
+from pynano import User, Region
 
 
 @pytest.fixture(scope='module')
@@ -45,4 +45,24 @@ def kromey_hist():
         kromey.history
 
         return kromey
+
+
+@pytest.fixture(scope='module')
+def fbx():
+    """A test User object for `USA :: Alaska :: Fairbanks"""
+
+    file_path = os.path.join(
+        os.path.dirname(os.path.abspath(__file__)),
+        'data/region_fbx.xml')
+    with open(file_path) as f:
+        region_xml = f.read()
+
+    url = 'http://nanowrimo.org/wordcount_api/wcregion/usa-alaska-fairbanks'
+
+    with responses.RequestsMock() as rsps:
+        rsps.add(responses.GET,
+                 url,
+                 body=region_xml, status=200,
+                 content_type='application/xml; charset=utf-8')
+        return Region('usa-alaska-fairbanks', prefetch=True)
 
