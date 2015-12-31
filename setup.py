@@ -88,6 +88,8 @@ setup(
     tests_require=[
             'pytest',
             'responses',
+            'pep8',
+            'docutils',
             ],
 
     # If there are data files included in your packages that need to be
