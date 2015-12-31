@@ -6,6 +6,8 @@ try:
 except ImportError:
     # Fall back to the Py2 module if we have to
     from collections import Sequence
+    # And since we now know we're on Py2, get Py3-style super()
+    from builtins import super
 
 
 class NanoDay(object):
