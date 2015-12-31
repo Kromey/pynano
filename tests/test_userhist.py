@@ -28,3 +28,13 @@ def test_userhist_daily_wordcount(kromey_hist):
     assert kromey_hist.history[14].wordcount == 10499
     assert kromey_hist.history[10].wordcount == 804
 
+
+def test_userhist_sequence(kromey_hist):
+    word_sum = 0
+
+    for day in kromey_hist.history:
+        word_sum += day.wordcount
+
+    # Each day's wordcount should add up to the month's wordcount
+    assert word_sum == kromey_hist.wordcount
+
