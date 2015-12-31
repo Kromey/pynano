@@ -13,6 +13,10 @@ Welcome to ``pynano``
    :target: https://travis-ci.org/Kromey/pynano
    :alt: Build Status
 
+.. image:: https://img.shields.io/codecov/c/github/Kromey/pynano.svg
+   :target: https://codecov.io/github/Kromey/pynano?branch=master
+   :alt: Code Coverage
+
 `National Novel Writing Month <http://nanowrimo.org>`_ is an annual event in
 which the goal is generally to write 50,000 words of the first draft of a novel
 in the 30 days of November.
