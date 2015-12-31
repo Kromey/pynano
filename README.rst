@@ -47,11 +47,15 @@ each also provides access to daily data to track progress through the month::
 Requirements
 ------------
 
-``pynano`` is primarily built and tested using Python 3.4, however it should
-work with all versions of Python 3. It is also tested to work in Python 2.7,
-but again it should work in most versions of Python 2.
+``pynano`` is supported on Python versions 2.7, 3.4, and 3.5, with these
+additional packages:
 
-``pynano`` also relies on the following additional packages:
+* requests (version 2.9 or later)
+* xmltodict (version 0.9 or later)
 
-* requests (developed against 2.9)
-* xmltodict (developed against 0.9)
+.. note::
+
+   ``pynano`` is also tested against Python versions 2.6, 3.2, and 3.3, though
+   they are not officially supported. As a convenience, however, they remain
+   listed on PyPi as long as they continue to pass tests.
+
