@@ -79,6 +79,12 @@ setup(
     # for example:
     # $ pip install -e .[dev,test]
     extras_require={
+            'test': [
+                # These only work in extras_require, trying to use them from
+                # tests_require below somehow doesn't make them usable.
+                'pep8',
+                'docutils'
+                ]
     },
 
     # Integrate `setup.py test` with pytest
@@ -88,8 +94,6 @@ setup(
     tests_require=[
             'pytest',
             'responses',
-            'pep8',
-            'docutils',
             ],
 
     # If there are data files included in your packages that need to be
