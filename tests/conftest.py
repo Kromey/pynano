@@ -84,6 +84,5 @@ def site():
                  url,
                  body=site_xml, status=200,
                  content_type='application/xml; charset=utf-8')
-        print("PREFETCHING SITE DATA")
         return Site(prefetch=True)
 
