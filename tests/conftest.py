@@ -3,7 +3,7 @@ import pytest
 import responses
 
 
-from pynano import User, Region
+from pynano import User, Region, Site
 
 
 @pytest.fixture(scope='module')
@@ -65,4 +65,25 @@ def fbx():
                  body=region_xml, status=200,
                  content_type='application/xml; charset=utf-8')
         return Region('usa-alaska-fairbanks', prefetch=True)
+
+
+@pytest.fixture(scope='module')
+def site():
+    """A test Site object"""
+
+    file_path = os.path.join(
+        os.path.dirname(os.path.abspath(__file__)),
+        'data/site.xml')
+    with open(file_path) as f:
+        site_xml = f.read()
+
+    url = 'http://nanowrimo.org/wordcount_api/wcstatssummary'
+
+    with responses.RequestsMock() as rsps:
+        rsps.add(responses.GET,
+                 url,
+                 body=site_xml, status=200,
+                 content_type='application/xml; charset=utf-8')
+        print("PREFETCHING SITE DATA")
+        return Site(prefetch=True)
 
