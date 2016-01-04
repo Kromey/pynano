@@ -2,13 +2,13 @@ from decimal import Decimal
 import sys
 
 
+from .base import NanoBase
+from .day import NanoDay
+
+
 if sys.version_info < (3, 0, 0):
     # We're on Py2, get Py3-style super()
     from builtins import super
-
-
-from .base import NanoBase
-from .day import NanoDay
 
 
 class SiteDay(NanoDay):
