@@ -1,5 +1,3 @@
-from decimal import Decimal
-
 try:
     # Favor the Py3 module if available
     from collections.abc import Sequence

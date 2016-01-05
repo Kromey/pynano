@@ -1,9 +1,6 @@
 from decimal import Decimal
 
 
-from pynano import Site
-
-
 def test_site_wordcount(site):
     assert site.wordcount == 3397271645
 

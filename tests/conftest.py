@@ -1,9 +1,12 @@
 import os
+
+
 import pytest
 import responses
 
 
-from pynano import User, Region, Site
+# flake8 doesn't think this one is part of our package
+from pynano import Region, Site, User  # noqa
 
 
 @pytest.fixture(scope='module')

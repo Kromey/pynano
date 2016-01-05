@@ -1,9 +1,6 @@
 from decimal import Decimal
 
 
-from pynano import Region
-
-
 def test_region_wordcount(fbx):
     assert fbx.wordcount == 1675173
 

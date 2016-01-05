@@ -1,5 +1,5 @@
-import sys
 import subprocess
+import sys
 
 
 # We really only care about code "cleanness" on modern versions

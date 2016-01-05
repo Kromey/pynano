@@ -1,5 +1,5 @@
-from decimal import Decimal
 import sys
+from decimal import Decimal
 
 
 from .base import NanoBase

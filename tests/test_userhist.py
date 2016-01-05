@@ -1,5 +1,3 @@
-from pynano import User
-
 
 def test_userhist_wordcount(kromey_hist):
     # Note that this value that in the kromey fixture
