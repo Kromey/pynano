@@ -88,11 +88,16 @@ setup(
     # $ pip install -e .[dev,test]
     extras_require={
             'test': [
-                # These only work in extras_require, trying to use them from
-                # tests_require below somehow doesn't make them usable.
-                'pep8',
-                'docutils',
-                'coverage',
+                # Some of these don't work from tests_require for some reason;
+                # putting all of them here for consistency.
+                'flake8>=2.5.1',
+                'flake8-import-order>=0.6.1',
+                'pep8>=1.5.7',
+                'pep8-naming>=0.3.3',
+                'docutils>=0.12',
+                'coverage>=4.0.3',
+                'responses>=0.5.0',
+                'radon==1.2.2',
                 ]
     },
 
@@ -102,7 +107,6 @@ setup(
             ],
     tests_require=[
             'pytest',
-            'responses',
             ],
 
     # If there are data files included in your packages that need to be
