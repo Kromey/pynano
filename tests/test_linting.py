@@ -8,10 +8,7 @@ LINT = sys.version_info >= (3, 4, 0)
 
 def test_pep8():
     if LINT:
-        result = subprocess.call(['flake8',
-                                  # Activate Radon with the default complexity
-                                  '--radon-max-cc', '10',
-                                  ])
+        result = subprocess.call(['flake8', ])
         assert result == 0
 
 

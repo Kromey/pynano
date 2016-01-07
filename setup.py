@@ -90,14 +90,12 @@ setup(
             'test': [
                 # Some of these don't work from tests_require for some reason;
                 # putting all of them here for consistency.
+                'coverage>=4.0.3',
+                'docutils>=0.12',
                 'flake8>=2.5.1',
                 'flake8-import-order>=0.6.1',
-                'pep8>=1.5.7',
                 'pep8-naming>=0.3.3',
-                'docutils>=0.12',
-                'coverage>=4.0.3',
                 'responses>=0.5.0',
-                'radon==1.2.2',
                 ]
     },
 
