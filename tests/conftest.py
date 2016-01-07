@@ -5,10 +5,6 @@ import pytest
 import responses
 
 
-# flake8 doesn't think this one is part of our package
-from pynano import Region, Site, User  # noqa
-
-
 @pytest.fixture()
 def kromey_response():
     def response_wrapper(rsps):
