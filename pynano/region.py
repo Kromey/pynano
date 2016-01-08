@@ -181,7 +181,7 @@ class Region(NanoBase):
 
         :rtype: int
         """
-        return int(self._fetch_element('count'))
+        return int(self._fetch_element('count', alt_index='numparticipants'))
 
     @property
     def donations(self):
