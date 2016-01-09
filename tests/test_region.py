@@ -77,3 +77,20 @@ def test_region_donors(fbx_response):
         fbx = Region('usa-alaska-fairbanks')
         assert fbx.donors == 8
 
+
+def test_region_instantiation(fbx_response):
+    with responses.RequestsMock() as rsps:
+        fbx_response(rsps)
+        fbx = Region('usa-alaska-fairbanks')
+        assert fbx.name == 'USA :: Alaska :: Fairbanks'
+
+    with responses.RequestsMock() as rsps:
+        fbx_response(rsps)
+        fbx = Region('usa alaska fairbanks')
+        assert fbx.name == 'USA :: Alaska :: Fairbanks'
+
+    with responses.RequestsMock() as rsps:
+        fbx_response(rsps)
+        fbx = Region('usa :: alaska :: fairbanks')
+        assert fbx.name == 'USA :: Alaska :: Fairbanks'
+
