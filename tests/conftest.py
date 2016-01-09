@@ -59,6 +59,25 @@ def fbx_response():
 
 
 @pytest.fixture()
+def fbx_hist_response():
+    def response_wrapper(rsps):
+        file_path = os.path.join(
+            os.path.dirname(os.path.abspath(__file__)),
+            'data/regionhist_fbx.xml')
+        with open(file_path) as f:
+            region_xml = f.read()
+
+        url = 'http://nanowrimo.org/wordcount_api/wcregionhist/usa-alaska-fairbanks'  # noqa
+
+        rsps.add(responses.GET,
+                 url,
+                 body=region_xml, status=200,
+                 content_type='application/xml; charset=utf-8')
+
+    return response_wrapper
+
+
+@pytest.fixture()
 def site_response():
     def response_wrapper(rsps):
         file_path = os.path.join(
