@@ -95,3 +95,22 @@ def site_response():
 
     return response_wrapper
 
+
+@pytest.fixture()
+def site_hist_response():
+    def response_wrapper(rsps):
+        file_path = os.path.join(
+            os.path.dirname(os.path.abspath(__file__)),
+            'data/sitehist.xml')
+        with open(file_path) as f:
+            site_xml = f.read()
+
+        url = 'http://nanowrimo.org/wordcount_api/wcstats'
+
+        rsps.add(responses.GET,
+                 url,
+                 body=site_xml, status=200,
+                 content_type='application/xml; charset=utf-8')
+
+    return response_wrapper
+
