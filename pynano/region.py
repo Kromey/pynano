@@ -79,7 +79,7 @@ class RegionDay(NanoDay):
 
         :rtype: Decimal
         """
-        return Decimal(self._data['donations'])
+        return Decimal(self._data['donations'] or '0.0')
 
     @property
     def donors(self):
@@ -89,7 +89,7 @@ class RegionDay(NanoDay):
 
         :rtype: int
         """
-        return int(self._data['numdonors'])
+        return int(self._data['numdonors'] or 0)
 
 
 class Region(NanoBase):
