@@ -6,11 +6,9 @@ https://github.com/pypa/sampleproject
 """
 
 import sys
-# To use a consistent encoding
-from codecs import open
+from codecs import open  # To use a consistent encoding
 from os import path
-# Always prefer setuptools over distutils
-from setuptools import find_packages, setup
+from setuptools import find_packages, setup  # Prefer setuptools over distutils
 
 here = path.abspath(path.dirname(__file__))
 
