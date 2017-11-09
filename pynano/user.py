@@ -20,6 +20,7 @@ class User(NanoBase):
     # Endpoint URLs for user objects
     _primary_url = 'http://nanowrimo.org/wordcount_api/wc/{name}'
     _history_url = 'http://nanowrimo.org/wordcount_api/wchistory/{name}'
+    _writeapi_url = 'https://nanowrimo.org/api/wordcount'
 
     __secret_key = None
 
@@ -86,7 +87,7 @@ class User(NanoBase):
                 'wordcount': val,
             }
 
-            r = requests.put('https://nanowrimo.org/api/wordcount', data=data)
+            r = requests.put(self._writeapi_url, data=data)
 
             if not r.ok:
                 r.raise_for_status()
