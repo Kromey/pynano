@@ -47,7 +47,7 @@ each also provides access to daily data to track progress through the month::
 Requirements
 ------------
 
-``pynano`` is supported on Python versions 2.7, 3.4, and 3.5, with these
+``pynano`` is supported on Python versions 2.7, 3.5, and 3.6, with these
 additional packages:
 
 * requests (version 2.9 or later)
@@ -55,7 +55,7 @@ additional packages:
 
 .. note::
 
-   ``pynano`` is also tested against Python versions 2.6, 3.2, and 3.3, though
+   ``pynano`` is also tested against Python versions 3.3, and 3.4, though
    they are not officially supported. As a convenience, however, they remain
    listed on PyPi as long as they continue to pass tests.
 
