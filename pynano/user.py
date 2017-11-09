@@ -1,8 +1,16 @@
 import hashlib
+import sys
+
+
 import requests
 
 
 from .base import NanoBase
+
+
+if sys.version_info < (3, 0, 0):
+    # We're on Py2, get Py3-style super()
+    from builtins import super
 
 
 class User(NanoBase):
