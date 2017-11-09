@@ -65,3 +65,25 @@ class User(NanoBase):
         """
         return self._fetch_element('winner') == 'true'
 
+    @property
+    def secret_key(self):
+        """The User's WriteAPI key.
+
+        This is not actually returned; if the key has been set you will get a
+        string of '*' characters. Returns None if no key has been set.
+
+        :rtype: string
+        """
+        if self.__secret_key is not None:
+            return '*' * len(self.__secret_key)
+
+        return None
+
+    @secret_key.setter
+    def secret_key(self, val):
+        """Set the User's WriteAPI key.
+
+        :param string val: The User's WriteAPI secret key
+        """
+        self.__secret_key = val
+
