@@ -73,10 +73,10 @@ class User(NanoBase):
             h.update(str(val).encode())
 
             data = {
-                    'hash':h.hexdigest(),
-                    'name':name,
-                    'wordcount':val,
-                    }
+                'hash': h.hexdigest(),
+                'name': name,
+                'wordcount': val,
+            }
 
             r = requests.put('https://nanowrimo.org/api/wordcount', data=data)
 
