@@ -9,6 +9,13 @@ class User(NanoBase):
     _primary_url = 'http://nanowrimo.org/wordcount_api/wc/{name}'
     _history_url = 'http://nanowrimo.org/wordcount_api/wchistory/{name}'
 
+    __secret_key = None
+
+    def __init__(self, name, secret_key=None, **kwargs):
+        super().__init__(name, **kwargs)
+
+        self.__secret_key = secret_key
+
     @property
     def id(self):
         """The User's id.
