@@ -68,3 +68,11 @@ def test_sitehist_daily_stddev(site_hist_response):
         site = Site()
         assert site.history[14].stddev == Decimal('3727.1484283641685')
 
+
+def test_sitehist_daily_count(site_hist_response):
+    with responses.RequestsMock() as rsps:
+        site_hist_response(rsps)
+        site = Site()
+        assert site.history[14].count == 108587306
+
+
