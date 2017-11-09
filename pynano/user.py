@@ -1,3 +1,7 @@
+import hashlib
+import requests
+
+
 from .base import NanoBase
 
 
@@ -14,7 +18,7 @@ class User(NanoBase):
     def __init__(self, name, secret_key=None, **kwargs):
         super().__init__(name, **kwargs)
 
-        self.__secret_key = secret_key
+        self.secret_key = secret_key
 
     @property
     def id(self):
@@ -52,8 +56,28 @@ class User(NanoBase):
 
         This uses the NaNoWriMo WriteAPI and the User's `secret_key` to update
         the wordcount on the NaNoWriMo website.
+
+        :param int val: The User's new word count
         """
-        self._data['user_wordcount'] = val
+        if self.secret_key is None:
+            raise ValueError('secret_key must be set before wordcount can be')
+
+        if val != self.wordcount:
+            val = int(val)
+            name = self.name
+            key = self.__secret_key
+            h = hashlib.sha1(key.encode() + name.encode() + str(val).encode()).hexdigest()
+
+            data = {
+                    'hash':h,
+                    'name':name,
+                    'wordcount':val,
+                    }
+
+            r = requests.put('https://nanowrimo.org/api/wordcount', data=data)
+
+            if not r.ok:
+                r.raise_for_status()
 
     @property
     def winner(self):
