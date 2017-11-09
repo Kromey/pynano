@@ -46,6 +46,15 @@ class User(NanoBase):
         """
         return int(self._fetch_element('user_wordcount'))
 
+    @wordcount.setter
+    def wordcount(self, val):
+        """Update the User's current word count.
+
+        This uses the NaNoWriMo WriteAPI and the User's `secret_key` to update
+        the wordcount on the NaNoWriMo website.
+        """
+        self._data['user_wordcount'] = val
+
     @property
     def winner(self):
         """The User's "winner" status.
