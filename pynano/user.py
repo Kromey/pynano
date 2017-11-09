@@ -66,10 +66,14 @@ class User(NanoBase):
             val = int(val)
             name = self.name
             key = self.__secret_key
-            h = hashlib.sha1(key.encode() + name.encode() + str(val).encode()).hexdigest()
+
+            h = hashlib.sha1()
+            h.update(key.encode())
+            h.update(name.encode())
+            h.update(str(val).encode())
 
             data = {
-                    'hash':h,
+                    'hash':h.hexdigest(),
                     'name':name,
                     'wordcount':val,
                     }
