@@ -1,3 +1,4 @@
+import pytest
 import responses
 
 
@@ -62,6 +63,11 @@ def test_userhist_sequence(kromey_hist_response):
     with responses.RequestsMock() as rsps:
         kromey_hist_response(rsps)
         kromey = User('kromey')
+        assert len(kromey.history) == 30
+
+        with pytest.raises(TypeError):
+            kromey.history['foo']
+
         for day in kromey.history:
             word_sum += day.wordcount
 
