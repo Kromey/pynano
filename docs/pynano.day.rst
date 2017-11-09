@@ -1,5 +1,5 @@
-pynano.day module
-=================
+pynano\.day module
+==================
 
 .. automodule:: pynano.day
     :members:

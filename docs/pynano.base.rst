@@ -1,5 +1,5 @@
-pynano.base module
-==================
+pynano\.base module
+===================
 
 .. automodule:: pynano.base
     :members:

@@ -1,5 +1,5 @@
-pynano.region module
-====================
+pynano\.region module
+=====================
 
 .. automodule:: pynano.region
     :members:

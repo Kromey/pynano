@@ -1,5 +1,5 @@
-pynano.user module
-==================
+pynano\.user module
+===================
 
 .. automodule:: pynano.user
     :members:

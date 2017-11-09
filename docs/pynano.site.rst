@@ -1,5 +1,5 @@
-pynano.site module
-==================
+pynano\.site module
+===================
 
 .. automodule:: pynano.site
     :members:
