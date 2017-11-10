@@ -95,8 +95,8 @@ class RegionDay(NanoDay):
 class Region(NanoBase):
     """A NanoBase object to represent NaNoWriMo regions from the API."""
     # Endpoint URLs for region objects
-    _primary_url = 'http://nanowrimo.org/wordcount_api/wcregion/{name}'
-    _history_url = 'http://nanowrimo.org/wordcount_api/wcregionhist/{name}'
+    _primary_url = 'https://nanowrimo.org/wordcount_api/wcregion/{name}'
+    _history_url = 'https://nanowrimo.org/wordcount_api/wcregionhist/{name}'
 
     # Use our own Day object
     _day_class = RegionDay

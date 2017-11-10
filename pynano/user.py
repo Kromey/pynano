@@ -18,8 +18,8 @@ class User(NanoBase):
     A NanoBase object for representing NaNoWriMo participants.
     """
     # Endpoint URLs for user objects
-    _primary_url = 'http://nanowrimo.org/wordcount_api/wc/{name}'
-    _history_url = 'http://nanowrimo.org/wordcount_api/wchistory/{name}'
+    _primary_url = 'https://nanowrimo.org/wordcount_api/wc/{name}'
+    _history_url = 'https://nanowrimo.org/wordcount_api/wchistory/{name}'
     _writeapi_url = 'https://nanowrimo.org/api/wordcount'
 
     __secret_key = None

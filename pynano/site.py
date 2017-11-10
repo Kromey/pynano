@@ -68,8 +68,8 @@ class SiteDay(NanoDay):
 
 class Site(NanoBase):
     # Endpoint URLs for region objects
-    _primary_url = 'http://nanowrimo.org/wordcount_api/wcstatssummary{name}'
-    _history_url = 'http://nanowrimo.org/wordcount_api/wcstats{name}'
+    _primary_url = 'https://nanowrimo.org/wordcount_api/wcstatssummary{name}'
+    _history_url = 'https://nanowrimo.org/wordcount_api/wcstats{name}'
 
     # Use our own Day object
     _day_class = SiteDay
