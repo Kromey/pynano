@@ -22,7 +22,7 @@ def kromey_response():
             kromey_xml = f.read()
 
         rsps.add(responses.GET,
-                 'http://nanowrimo.org/wordcount_api/wc/kromey',
+                 'https://nanowrimo.org/wordcount_api/wc/kromey',
                  body=kromey_xml, status=200,
                  content_type='application/xml; charset=utf-8')
 
@@ -39,7 +39,7 @@ def kromey_hist_response():
             kromeyhist_xml = f.read()
 
         rsps.add(responses.GET,
-                 'http://nanowrimo.org/wordcount_api/wchistory/kromey',
+                 'https://nanowrimo.org/wordcount_api/wchistory/kromey',
                  body=kromeyhist_xml, status=200,
                  content_type='application/xml; charset=utf-8')
 
@@ -89,7 +89,7 @@ def fbx_response():
         with open(file_path) as f:
             region_xml = f.read()
 
-        url = 'http://nanowrimo.org/wordcount_api/wcregion/usa-alaska-fairbanks'
+        url = 'https://nanowrimo.org/wordcount_api/wcregion/usa-alaska-fairbanks'  # noqa
 
         rsps.add(responses.GET,
                  url,
@@ -108,7 +108,7 @@ def fbx_hist_response():
         with open(file_path) as f:
             region_xml = f.read()
 
-        url = 'http://nanowrimo.org/wordcount_api/wcregionhist/usa-alaska-fairbanks'  # noqa
+        url = 'https://nanowrimo.org/wordcount_api/wcregionhist/usa-alaska-fairbanks'  # noqa
 
         rsps.add(responses.GET,
                  url,
@@ -127,7 +127,7 @@ def site_response():
         with open(file_path) as f:
             site_xml = f.read()
 
-        url = 'http://nanowrimo.org/wordcount_api/wcstatssummary'
+        url = 'https://nanowrimo.org/wordcount_api/wcstatssummary'
 
         rsps.add(responses.GET,
                  url,
@@ -146,7 +146,7 @@ def site_hist_response():
         with open(file_path) as f:
             site_xml = f.read()
 
-        url = 'http://nanowrimo.org/wordcount_api/wcstats'
+        url = 'https://nanowrimo.org/wordcount_api/wcstats'
 
         rsps.add(responses.GET,
                  url,
