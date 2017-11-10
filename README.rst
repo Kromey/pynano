@@ -17,13 +17,13 @@ Welcome to ``pynano``
    :target: https://codecov.io/github/Kromey/pynano?branch=master
    :alt: Code Coverage
 
-`National Novel Writing Month <http://nanowrimo.org>`_ is an annual event in
+`National Novel Writing Month <https://nanowrimo.org>`_ is an annual event in
 which the goal is generally to write 50,000 words of the first draft of a novel
 in the 30 days of November.
 
 Naturally, the hosts have graciously supplied a website with various means of
 updating and tracking one's progress through this adventure, including an `API
-<http://nanowrimo.org/wordcount_api>`_ to allow users to create their own
+<https://nanowrimo.org/wordcount_api>`_ to allow users to create their own
 progress trackers.
 
 This is where ``pynano`` comes into play, providing a simple, Pythonic way to
