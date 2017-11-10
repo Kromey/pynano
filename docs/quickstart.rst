@@ -45,6 +45,9 @@ user `Bob Vila`).
 common properties you'll want; for others, refer to the :ref:`Reference Guide
 <ref-pynano-user>`.
 
+Additionally, when the :attr:`~.User.secret_key` is supplied, you can update
+the user's word count; see the :ref:`Reference Guide <ref-update-wordcount>`.
+
 Regions
 ^^^^^^^
 

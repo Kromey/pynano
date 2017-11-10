@@ -64,6 +64,49 @@ site or in a region.
    stddev
    history
 
+.. _ref-update-wordcount:
+
+Updating a User's Word Count
+----------------------------
+
+The User object can also be used to update the word count on the NaNoWriMo
+website. This requires the user's "secret key", which logged-in users can find
+`here <https://nanowrimo.org/api/wordcount>`_. This value will need to be
+assigned to the User object's ``secret_key`` property before the word count can
+be updated:
+
+::
+
+   >>> from pynano import User
+   >>> kromey = User('kromey')
+   >>> kromey.secret_key = 'abc123'
+   >>> kromey.wordcount = 64133
+
+Alternatively, the ``secret_key`` can be specified as a keyword argument when
+creating the User object:
+
+::
+
+   >>> kromey = User('kromey' secret_key='abc123')
+   >>> kromey.wordcount = 64133
+
+If you neglect to supply the ``secret_key`` prior to attempting to update the
+word count, the object will raise a ``ValueError``; if anything goes wrong when
+performing the update -- e.g. a hash mismatch caused by the incorrect key being
+supplied -- it will raise an ``HTTPError``.
+
+.. warning::
+
+   ``pynano`` first performs a lookup to get the User's canonical name (to
+   ensure casing is correct before generating the hash) and the current word
+   count. No request will be issued if the new word count is the same as the
+   current word count.
+
+   Additionally, trying to query the ``wordcount`` property after performing
+   the update will not reflect the new value; further, the API itself appears
+   to perform some caching, so even creating a new User object won't show the
+   new value right away.
+
 Historical Data
 ---------------
 
